@@ -40,6 +40,10 @@
             var rigidbody = projectile.GetComponent<Rigidbody>();
             rigidbody.isKinematic = false;
             rigidbody.velocity = ray.direction * initialSpeed;
+
+            // Update the score
+            var networkCommunication = FindObjectOfType<NetworkCommunication>();
+            networkCommunication.IncrementScore();
         }
     }
 }
