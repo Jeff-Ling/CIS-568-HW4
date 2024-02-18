@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MyFirstARGame
 {
-    enum PlatformType { Hub, DinningTable, Sink, PlateRack, Refrigerator, Counter };
+    enum PlatformType { Hob, DinningTable, Sink, PlateRack, Refrigerator, Counter };
 
     public class Platform : MonoBehaviour
     {
