@@ -11,6 +11,10 @@ namespace MyFirstARGame
         {
 
         }
+        public virtual void OnDrop(Item item)
+        {
+
+        }
 
         // Start is called before the first frame update
         public virtual void Start()
