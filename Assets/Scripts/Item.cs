@@ -4,9 +4,13 @@ using UnityEngine;
 
 namespace MyFirstARGame
 {
-    enum ItemType { Steak, Plate };
+    public enum ItemType { Steak, Plate };
     public class Item : MonoBehaviour
     {
+        [SerializeField]
+        private ItemType type;
+
+        public ItemType Type { get { return type; } }
         public virtual void OnDrop(Platform platform)
         {
 
@@ -14,6 +18,6 @@ namespace MyFirstARGame
         public virtual void OnDrop(Item item)
         {
 
-        }s
+        }
     }
 }
