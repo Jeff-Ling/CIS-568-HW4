@@ -28,6 +28,8 @@ namespace MyFirstARGame
         }
         [SerializeField]
         public PlayerController playerController;
+        [SerializeField]
+        public GameObject gameOverPanel;
 
         [SerializeField]
         public PhotonView photonView;
@@ -50,6 +52,19 @@ namespace MyFirstARGame
         public void IncrementScore()
         {
             photonView.RPC("ScoreSync", RpcTarget.AllBuffered, score+1);
+        }
+        public void GameOver()
+        {
+            photonView.RPC("GameOverSync", RpcTarget.AllBuffered);
+        }
+        [PunRPC]
+        public void GameOverSync()
+        {
+            Time.timeScale = 0f;
+            if(gameOverPanel != null)
+            {
+                gameOverPanel.SetActive(true);
+            }
         }
         [PunRPC]
         public void ScoreSync(int score)
