@@ -2,6 +2,7 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MyFirstARGame
 {
@@ -13,6 +14,11 @@ namespace MyFirstARGame
         public GameObject customer;
         public float eatProgress = 0f;
         public float eatSpeed = 0.1f;
+
+        public Slider patienceSlider;
+        float maxPatience = 100f;
+        float currentPatience;
+        float decreaseRate = 2f;
 
         float timer = 0f;
 
@@ -68,6 +74,7 @@ namespace MyFirstARGame
                 if (timer > spawnInterval)
                 {
                     customer.SetActive(true);
+                    currentPatience = maxPatience;
                     timer = 0;
                 }
                 else timer += Time.deltaTime;
@@ -92,7 +99,35 @@ namespace MyFirstARGame
                 }
             }
 
+            if (customer.active)
+            {
+                if (plate == null)
+                {
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        if (currentPatience > 0)
+                        {
+                            Debug.Log(currentPatience);
+                            currentPatience -= decreaseRate * Time.deltaTime;
+                            this.photonView.RPC("UpdatePatienceUI", RpcTarget.All, currentPatience);
+                            // UpdatePatienceUI();
+                        }
+                        else
+                        {
+                            GameManager.instance.GameOver();
+                        }
+                    }
+                }
+            }
+
+
             base.Update();
+        }
+
+        [PunRPC]
+        void UpdatePatienceUI(float curPatience)
+        {
+            patienceSlider.value = curPatience / maxPatience;
         }
     }
 }
