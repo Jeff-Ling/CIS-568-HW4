@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,14 +11,17 @@ namespace MyFirstARGame
         public float cookingSpeed = 0.1f;
         public GameObject rawSteak;
         public GameObject welldoneSteak;
-        private void Start()
+        public override void Start()
         {
+            base.Start();
             rawSteak.SetActive(true);
             welldoneSteak.SetActive(false);
         }
-
-        public override void UpdateByPlatform(Platform platform)
+        [PunRPC]
+        public override void UpdateByPlatform(int platformViewId)
         {
+            var go = PhotonView.Find(platformViewId).gameObject;
+            var platform = go.GetComponent<Platform>();
             if (progress < 1f)
             {
                 if (platform.Type == PlatformType.Hob)

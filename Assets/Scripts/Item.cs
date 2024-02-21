@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,15 +10,27 @@ namespace MyFirstARGame
     {
         [SerializeField]
         private ItemType type;
+        [SerializeField]
+        public PhotonView photonView;
 
         public ItemType Type { get { return type; } }
+        public virtual void Start()
+        {
+            if (photonView == null)
+            {
+                photonView = GetComponent<PhotonView>();
+            }
+        }
+        [PunRPC]
         public virtual void OnPickUp()
         {
         }
-        public virtual void OnDrop(Platform platform)
+        [PunRPC]
+        public virtual void OnDrop(int platformViewId)
         {
         }
-        public virtual void UpdateByPlatform(Platform platform)
+        [PunRPC]
+        public virtual void UpdateByPlatform(int platformViewId)
         {
 
         }

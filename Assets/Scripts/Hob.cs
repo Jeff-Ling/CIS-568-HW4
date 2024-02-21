@@ -11,7 +11,7 @@ namespace MyFirstARGame
             //base.Update();
             if (this.item != null && this.item.Type == ItemType.Steak)
             {
-                item.UpdateByPlatform(this);
+                item.UpdateByPlatform(photonView.ViewID);
             }
         }
     }

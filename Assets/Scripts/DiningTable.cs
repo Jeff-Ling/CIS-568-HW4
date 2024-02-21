@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,9 +21,11 @@ namespace MyFirstARGame
             base.Start();
             //if (customer == null) customer = Instantiate(customerPrefab, customerAnchor);
         }
-
-        public override bool AddOneItem(Item item)
+        [PunRPC]
+        public override bool AddOneItem(int itemViewId)
         {
+            var go = PhotonView.Find(itemViewId).gameObject;
+            var item = go.GetComponent<Item>();
             if (this.item == null)
             {
                 Plate plate = item as Plate;
@@ -40,15 +43,18 @@ namespace MyFirstARGame
             }
             return false;
         }
-        public override Item OnPickUp()
+        [PunRPC]
+        public override int OnPickUp()
         {
-            var ret = base.OnPickUp();
-            if (ret != null)
+            int ret = base.OnPickUp();
+            if (ret != -1)
             {
-                Plate plate = ret as Plate;
+                var go = PhotonView.Find(ret).gameObject;
+                var item = go.GetComponent<Item>();
+                Plate plate = item as Plate;
                 if (plate == null || !plate.dirtyPlate.active)
                 {
-                    ret = null;
+                    ret = -1;
                 }
             }
             return ret;

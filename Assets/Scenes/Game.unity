@@ -175,8 +175,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 1074956408}
   type: 4
+  photonView: {fileID: 0}
   item: {fileID: 0}
-  steakPrefab: {fileID: 4654442871193432082, guid: 8129b2125824d6c4cbbfe9ee656cb2c9,
+  steakPrefab: {fileID: 4654442871193432082, guid: c99aa9587fc31c241b53265946fdea1e,
     type: 3}
   spawnInterval: 5
   steak: {fileID: 0}
@@ -456,8 +457,8 @@ GameObject:
   - component: {fileID: 33490205}
   - component: {fileID: 33490204}
   - component: {fileID: 33490207}
-  - component: {fileID: 33490209}
   - component: {fileID: 33490208}
+  - component: {fileID: 33490209}
   m_Layer: 6
   m_Name: Hob1
   m_TagString: Untagged
@@ -565,6 +566,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 0}
   type: 0
+  photonView: {fileID: 0}
   item: {fileID: 0}
 --- !u!114 &33490208
 MonoBehaviour:
@@ -591,13 +593,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 33490202}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 33490208}
+  sceneViewId: 47
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &38790340
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,8 +620,8 @@ GameObject:
   - component: {fileID: 38790344}
   - component: {fileID: 38790343}
   - component: {fileID: 38790346}
-  - component: {fileID: 38790348}
   - component: {fileID: 38790347}
+  - component: {fileID: 38790348}
   m_Layer: 6
   m_Name: Hob6
   m_TagString: Untagged
@@ -720,6 +729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 0}
   type: 0
+  photonView: {fileID: 0}
   item: {fileID: 0}
 --- !u!114 &38790347
 MonoBehaviour:
@@ -746,13 +756,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 38790340}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 46
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &42182243
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,6 +1350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 2031500846}
   type: 3
+  photonView: {fileID: 0}
   item: {fileID: 2121985117}
 --- !u!65 &138305428
 BoxCollider:
@@ -2845,8 +2862,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 227247022}
   type: 4
+  photonView: {fileID: 0}
   item: {fileID: 0}
-  steakPrefab: {fileID: 4654442871193432082, guid: 8129b2125824d6c4cbbfe9ee656cb2c9,
+  steakPrefab: {fileID: 4654442871193432082, guid: c99aa9587fc31c241b53265946fdea1e,
     type: 3}
   spawnInterval: 5
   steak: {fileID: 0}
@@ -2967,10 +2985,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1053678861}
     m_Modifications:
+    - target: {fileID: 255234338035059192, guid: 951479fdf8b2bc043828d6d8e1fec0a5,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 483411036139852659, guid: 951479fdf8b2bc043828d6d8e1fec0a5,
         type: 3}
       propertyPath: m_Name
       value: Plate
+      objectReference: {fileID: 0}
+    - target: {fileID: 836024277390539435, guid: 951479fdf8b2bc043828d6d8e1fec0a5,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409912512113809279, guid: 951479fdf8b2bc043828d6d8e1fec0a5,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 8502108963920257928, guid: 951479fdf8b2bc043828d6d8e1fec0a5,
         type: 3}
@@ -3458,8 +3491,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 122972887}
   type: 4
+  photonView: {fileID: 0}
   item: {fileID: 0}
-  steakPrefab: {fileID: 4654442871193432082, guid: 8129b2125824d6c4cbbfe9ee656cb2c9,
+  steakPrefab: {fileID: 4654442871193432082, guid: c99aa9587fc31c241b53265946fdea1e,
     type: 3}
   spawnInterval: 5
   steak: {fileID: 0}
@@ -3696,8 +3730,8 @@ GameObject:
   - component: {fileID: 706806396}
   - component: {fileID: 706806395}
   - component: {fileID: 706806398}
-  - component: {fileID: 706806400}
   - component: {fileID: 706806399}
+  - component: {fileID: 706806400}
   m_Layer: 6
   m_Name: Hob4
   m_TagString: Untagged
@@ -3805,6 +3839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 0}
   type: 0
+  photonView: {fileID: 0}
   item: {fileID: 0}
 --- !u!114 &706806399
 MonoBehaviour:
@@ -3831,13 +3866,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 706806392}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 45
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &715633765
 GameObject:
   m_ObjectHideFlags: 0
@@ -4233,8 +4274,8 @@ GameObject:
   - component: {fileID: 818792784}
   - component: {fileID: 818792783}
   - component: {fileID: 818792786}
-  - component: {fileID: 818792788}
   - component: {fileID: 818792787}
+  - component: {fileID: 818792788}
   m_Layer: 6
   m_Name: Hob2
   m_TagString: Untagged
@@ -4342,6 +4383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 0}
   type: 0
+  photonView: {fileID: 0}
   item: {fileID: 0}
 --- !u!114 &818792787
 MonoBehaviour:
@@ -4368,13 +4410,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 818792780}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 44
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &835797453
 GameObject:
   m_ObjectHideFlags: 0
@@ -4560,6 +4608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 1053678861}
   type: 3
+  photonView: {fileID: 0}
   item: {fileID: 1035882296}
 --- !u!65 &908374779
 BoxCollider:
@@ -4755,6 +4804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 1715932462}
   type: 1
+  photonView: {fileID: 0}
   item: {fileID: 0}
   customerAnchor: {fileID: 277266096}
   spawnInterval: 3
@@ -6308,6 +6358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 1933096829}
   type: 5
+  photonView: {fileID: 0}
   item: {fileID: 0}
 --- !u!65 &1225558791
 BoxCollider:
@@ -6471,6 +6522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 0}
   type: 3
+  photonView: {fileID: 0}
   item: {fileID: 1959540075}
 --- !u!65 &1227592039
 BoxCollider:
@@ -6595,8 +6647,8 @@ GameObject:
   - component: {fileID: 1240003586}
   - component: {fileID: 1240003585}
   - component: {fileID: 1240003588}
-  - component: {fileID: 1240003590}
   - component: {fileID: 1240003589}
+  - component: {fileID: 1240003590}
   m_Layer: 6
   m_Name: Hob5
   m_TagString: Untagged
@@ -6704,6 +6756,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 0}
   type: 0
+  photonView: {fileID: 0}
   item: {fileID: 0}
 --- !u!114 &1240003589
 MonoBehaviour:
@@ -6730,13 +6783,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1240003582}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 43
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1264378406
 GameObject:
   m_ObjectHideFlags: 0
@@ -6923,6 +6982,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 251203547}
   type: 5
+  photonView: {fileID: 0}
   item: {fileID: 0}
 --- !u!65 &1268044905
 BoxCollider:
@@ -7046,8 +7106,8 @@ GameObject:
   - component: {fileID: 1297706475}
   - component: {fileID: 1297706474}
   - component: {fileID: 1297706477}
-  - component: {fileID: 1297706479}
   - component: {fileID: 1297706478}
+  - component: {fileID: 1297706479}
   m_Layer: 6
   m_Name: Hob3
   m_TagString: Untagged
@@ -7155,6 +7215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 0}
   type: 0
+  photonView: {fileID: 0}
   item: {fileID: 0}
 --- !u!114 &1297706478
 MonoBehaviour:
@@ -7181,13 +7242,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1297706471}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 42
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1348004132
 GameObject:
   m_ObjectHideFlags: 0
@@ -7240,6 +7307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 2107705664}
   type: 5
+  photonView: {fileID: 0}
   item: {fileID: 0}
 --- !u!65 &1348004135
 BoxCollider:
@@ -7402,6 +7470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 1826528839}
   type: 2
+  photonView: {fileID: 0}
   item: {fileID: 0}
 --- !u!65 &1384482761
 BoxCollider:
@@ -7759,6 +7828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 85090714}
   type: 5
+  photonView: {fileID: 0}
   item: {fileID: 0}
 --- !u!65 &1435709591
 BoxCollider:
@@ -7894,8 +7964,8 @@ Transform:
   m_GameObject: {fileID: 1442199963}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalPosition: {x: 0, y: 0.09, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 42182249}
@@ -8046,8 +8116,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 404812550}
   type: 4
+  photonView: {fileID: 0}
   item: {fileID: 0}
-  steakPrefab: {fileID: 4654442871193432082, guid: 8129b2125824d6c4cbbfe9ee656cb2c9,
+  steakPrefab: {fileID: 4654442871193432082, guid: c99aa9587fc31c241b53265946fdea1e,
     type: 3}
   spawnInterval: 5
   steak: {fileID: 0}
@@ -8603,8 +8674,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 444221057}
   type: 4
+  photonView: {fileID: 0}
   item: {fileID: 0}
-  steakPrefab: {fileID: 4654442871193432082, guid: 8129b2125824d6c4cbbfe9ee656cb2c9,
+  steakPrefab: {fileID: 4654442871193432082, guid: c99aa9587fc31c241b53265946fdea1e,
     type: 3}
   spawnInterval: 5
   steak: {fileID: 0}
@@ -8697,7 +8769,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 1581438938}
   sceneViewId: 18
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -8843,6 +8916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 242509325}
   type: 3
+  photonView: {fileID: 0}
   item: {fileID: 1758987780}
 --- !u!65 &1602967550
 BoxCollider:
@@ -8964,6 +9038,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1640481017}
   - component: {fileID: 1640481016}
+  - component: {fileID: 1640481018}
   m_Layer: 6
   m_Name: GameManager
   m_TagString: GameController
@@ -8983,6 +9058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 504b38d5195f523458a83ad10e6424a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  photonView: {fileID: 0}
   playerController: {fileID: 715633775}
   operatingPlatform: {fileID: 0}
   rayCastingPlatform: {fileID: 0}
@@ -9002,6 +9078,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1640481018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640481015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 41
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1683401103
 GameObject:
   m_ObjectHideFlags: 0
@@ -9357,10 +9455,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 242509325}
     m_Modifications:
+    - target: {fileID: 255234338035059192, guid: 951479fdf8b2bc043828d6d8e1fec0a5,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 37
+      objectReference: {fileID: 0}
     - target: {fileID: 483411036139852659, guid: 951479fdf8b2bc043828d6d8e1fec0a5,
         type: 3}
       propertyPath: m_Name
       value: Plate
+      objectReference: {fileID: 0}
+    - target: {fileID: 836024277390539435, guid: 951479fdf8b2bc043828d6d8e1fec0a5,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409912512113809279, guid: 951479fdf8b2bc043828d6d8e1fec0a5,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 8502108963920257928, guid: 951479fdf8b2bc043828d6d8e1fec0a5,
         type: 3}
@@ -10087,8 +10200,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 2029871928}
   type: 4
+  photonView: {fileID: 0}
   item: {fileID: 0}
-  steakPrefab: {fileID: 4654442871193432082, guid: 8129b2125824d6c4cbbfe9ee656cb2c9,
+  steakPrefab: {fileID: 4654442871193432082, guid: c99aa9587fc31c241b53265946fdea1e,
     type: 3}
   spawnInterval: 5
   steak: {fileID: 0}
@@ -10388,6 +10502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 921862284}
   type: 2
+  photonView: {fileID: 0}
   item: {fileID: 0}
 --- !u!65 &2085810479
 BoxCollider:
@@ -10538,10 +10653,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2031500846}
     m_Modifications:
+    - target: {fileID: 255234338035059192, guid: 951479fdf8b2bc043828d6d8e1fec0a5,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 38
+      objectReference: {fileID: 0}
     - target: {fileID: 483411036139852659, guid: 951479fdf8b2bc043828d6d8e1fec0a5,
         type: 3}
       propertyPath: m_Name
       value: Plate
+      objectReference: {fileID: 0}
+    - target: {fileID: 836024277390539435, guid: 951479fdf8b2bc043828d6d8e1fec0a5,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409912512113809279, guid: 951479fdf8b2bc043828d6d8e1fec0a5,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 8502108963920257928, guid: 951479fdf8b2bc043828d6d8e1fec0a5,
         type: 3}
@@ -10637,10 +10767,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 453579786}
     m_Modifications:
+    - target: {fileID: 255234338035059192, guid: 951479fdf8b2bc043828d6d8e1fec0a5,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 39
+      objectReference: {fileID: 0}
     - target: {fileID: 483411036139852659, guid: 951479fdf8b2bc043828d6d8e1fec0a5,
         type: 3}
       propertyPath: m_Name
       value: Plate
+      objectReference: {fileID: 0}
+    - target: {fileID: 836024277390539435, guid: 951479fdf8b2bc043828d6d8e1fec0a5,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409912512113809279, guid: 951479fdf8b2bc043828d6d8e1fec0a5,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 8502108963920257928, guid: 951479fdf8b2bc043828d6d8e1fec0a5,
         type: 3}

@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,21 +16,23 @@ namespace MyFirstARGame
         public override void Start()
         {
             base.Start();
-            if (item == null)
-            {
-                steak = Instantiate(steakPrefab, itemAnchor);
-                this.item = steak.GetComponent<Steak>();
-                timer = 0;
-            }
+            //if (item == null)
+            //{
+            //    steak = PhotonNetwork.Instantiate(steakPrefab.name, itemAnchor.transform.position, itemAnchor.transform.rotation);
+            //    this.item = steak.GetComponent<Steak>();
+            //    timer = 0;
+            //}
         }
-        public override bool AddOneItem(Item item)
+        [PunRPC]
+        public override bool AddOneItem(int id)
         {
             return false;
         }
-        public override Item OnPickUp()
+        [PunRPC]
+        public override int OnPickUp()
         {
             var ret = base.OnPickUp();
-            if (ret != null)
+            if (ret != -1)
             {
                 steak = null;
             }
@@ -43,7 +46,8 @@ namespace MyFirstARGame
             {
                 if (timer > spawnInterval)
                 {
-                    steak = Instantiate(steakPrefab, itemAnchor);
+                    steak = PhotonNetwork.Instantiate(steakPrefab.name, itemAnchor.transform.position, itemAnchor.transform.rotation);
+                    steak.transform.parent = itemAnchor; steak.transform.localScale = Vector3.one;
                     this.item = steak.GetComponent<Steak>();
                     timer = 0;
                 }

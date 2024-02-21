@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ namespace MyFirstARGame
         public Transform itemAnchor;
         [SerializeField]
         private PlatformType type;
+        [SerializeField]
+        public PhotonView photonView;
 
         public PlatformType Type { get { return type; } }
         //public Grid grid;
@@ -20,31 +23,43 @@ namespace MyFirstARGame
         public Item item;
         public virtual void Start()
         {
+            if (photonView  == null)
+            {
+                photonView = GetComponent<PhotonView>();
+            }
             if (itemAnchor == null) itemAnchor = transform;
         }
-        public virtual bool AddOneItem(Item item)
+        [PunRPC]
+        public virtual bool AddOneItem(int itemViewId)
         {
-            if (this.item == null)
+            var go = PhotonView.Find(itemViewId).gameObject;
+            var item = go.GetComponent<Item>();
+            if (go != null)
             {
-                this.item = item;
-                item.transform.parent = itemAnchor;
-                item.transform.localPosition = Vector3.zero;
-                item.transform.localRotation = Quaternion.identity;
-                Debug.Log($"{item} added to {this}");
-                return true;
-            }
-            else if (this.item.Type == ItemType.Plate && item.Type == ItemType.Steak)
-            {
-                Plate plate = this.item as Plate;
-                if (plate.AddSteak())
+                if (this.item == null)
                 {
-                    GameObject.Destroy(item.gameObject);
+                    this.item = item;
+                    item.transform.parent = itemAnchor;
+                    item.transform.localPosition = Vector3.zero;
+                    item.transform.localRotation = Quaternion.identity;
+                    Debug.Log($"{item} added to {this}");
                     return true;
+                }
+                else if (this.item.Type == ItemType.Plate && item.Type == ItemType.Steak)
+                {
+                    Plate plate = this.item as Plate;
+                    if (plate.AddSteak())
+                    {
+                        //GameObject.Destroy(item.gameObject);
+                        PhotonNetwork.Destroy(item.gameObject);
+                        return true;
+                    }
                 }
             }
             return false;
         }
-        public virtual Item OnPickUp()
+        [PunRPC]
+        public virtual int OnPickUp()
         {
             Item ret = null;
             if (item != null)
@@ -53,15 +68,17 @@ namespace MyFirstARGame
                 ret = item;
                 item = null;
             }
-            return ret;
+            if (ret != null) return ret.photonView.ViewID;
+            else return -1;
         }
+        [PunRPC]
         public virtual void Update()
         {
             if (GameManager.instance.OperatingPlatform == this)
             {
                 if (item != null)
                 {
-                    item.UpdateByPlatform(this);
+                    item.UpdateByPlatform(photonView.ViewID);
                 }
             }
         }

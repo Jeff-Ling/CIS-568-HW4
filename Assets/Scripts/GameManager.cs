@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +27,8 @@ namespace MyFirstARGame
             }
         }
 
+        [SerializeField]
+        public PhotonView photonView;
         [SerializeField]
         protected PlayerController playerController;
         [SerializeField]
@@ -62,11 +65,21 @@ namespace MyFirstARGame
                 holdingItem = value;
             }
         }
+        protected void Start()
+        {
+
+            if (photonView == null)
+            {
+                photonView = GetComponent<PhotonView>();
+            }
+        }
         public bool OnPickUp()
         {
             if (holdingItem != null) return false;
             if (rayCastingPlatform == null) return false;
-            holdingItem = rayCastingPlatform.OnPickUp();
+            int id = rayCastingPlatform.OnPickUp();
+            if (id == -1) holdingItem = null;
+            else holdingItem = PhotonView.Find(id).GetComponent<Item>();
             if (holdingItem != null)
             {
                 holdingItem.transform.parent = playerController.transform;
@@ -81,9 +94,9 @@ namespace MyFirstARGame
         {
             if (holdingItem == null) return false;
             if (rayCastingPlatform == null) return false;
-            if (rayCastingPlatform.AddOneItem(holdingItem))
+            if (rayCastingPlatform.AddOneItem(holdingItem.photonView.ViewID))
             {
-                holdingItem.OnDrop(rayCastingPlatform);
+                holdingItem.OnDrop(rayCastingPlatform.photonView.ViewID);
                 holdingItem = null;
                 return true;
             }

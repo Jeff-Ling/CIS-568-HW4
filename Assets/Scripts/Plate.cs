@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,15 +14,18 @@ namespace MyFirstARGame
         public GameObject dirtyPlate;
         public GameObject steakOnPlate;
         //public bool Consumable { get; private set; }
-        private void Start()
+        public override void Start()
         {
+            base.Start();
             cleanPlate.SetActive(true);
             dirtyPlate.SetActive(false);
             steakOnPlate.SetActive(false);
         }
-
-        public override void UpdateByPlatform(Platform platform)
+        [PunRPC]
+        public override void UpdateByPlatform(int platformViewId)
         {
+            var go = PhotonView.Find(platformViewId).gameObject;
+            var platform = go.GetComponent<Platform>();
             if (dirtyPlate.active)
             {
                 if (platform.Type == PlatformType.Sink)
