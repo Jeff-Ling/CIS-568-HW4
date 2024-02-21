@@ -12,6 +12,16 @@ namespace MyFirstARGame
 
         float timer = 0f;
 
+        public override void Start()
+        {
+            base.Start();
+            if (item == null)
+            {
+                steak = Instantiate(steakPrefab, itemAnchor);
+                this.item = steak.GetComponent<Steak>();
+                timer = 0;
+            }
+        }
         public override bool AddOneItem(Item item)
         {
             return false;
