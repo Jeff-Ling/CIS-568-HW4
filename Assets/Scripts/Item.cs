@@ -11,11 +11,13 @@ namespace MyFirstARGame
         private ItemType type;
 
         public ItemType Type { get { return type; } }
+        public virtual void OnPickUp()
+        {
+        }
         public virtual void OnDrop(Platform platform)
         {
-
         }
-        public virtual void OnDrop(Item item)
+        public virtual void UpdateByPlatform(Platform platform)
         {
 
         }
