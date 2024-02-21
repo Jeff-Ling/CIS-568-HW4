@@ -42,18 +42,36 @@ namespace MyFirstARGame
         // Update is called once per frame
         void Update()
         {
-            if (steak == null)
+            if (PhotonNetwork.IsMasterClient)
             {
-                if (timer > spawnInterval)
+                if (steak == null)
                 {
-                    steak = PhotonNetwork.Instantiate(steakPrefab.name, itemAnchor.transform.position, itemAnchor.transform.rotation);
+                    if (timer > spawnInterval)
+                    {
+                        steak = PhotonNetwork.Instantiate(steakPrefab.name, itemAnchor.transform.position, itemAnchor.transform.rotation);
+                        steak.transform.parent = itemAnchor; steak.transform.localScale = Vector3.one;
+                        this.item = steak.GetComponent<Steak>();
+                        timer = 0;
+                        photonView.RPC("OnSteakInstantiated", RpcTarget.AllBuffered, ViewID, item.photonView.ViewID);
+
+                    }
+                    else timer += Time.deltaTime;
+                }
+                else timer = 0;
+            }
+        }
+        [PunRPC]
+        void OnSteakInstantiated(int refrigeratorId, int steakId)
+        {
+            if (refrigeratorId == photonView.ViewID)
+            {
+                if (item == null)
+                {
+                    var steak = PhotonView.Find(steakId).GetComponent<Steak>();
                     steak.transform.parent = itemAnchor; steak.transform.localScale = Vector3.one;
                     this.item = steak.GetComponent<Steak>();
-                    timer = 0;
                 }
-                else timer += Time.deltaTime;
             }
-            else timer = 0;
         }
     }
 }

@@ -14,6 +14,10 @@ namespace MyFirstARGame
         private PlatformType type;
         [SerializeField]
         public PhotonView photonView;
+        public int ViewID
+        {
+            get => photonView.ViewID;
+        }
 
         public PlatformType Type { get { return type; } }
         //public Grid grid;

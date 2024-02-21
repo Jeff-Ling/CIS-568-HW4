@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,33 @@ namespace MyFirstARGame
     {
         public Transform itemAnchor;
         public float rayCastDistance = 1f;
+
+        [SerializeField]
+        public PhotonView photonView;
+        public int ViewID
+        {
+            get => photonView.ViewID;
+        }
+        [SerializeField]
+        public Platform operatingPlatform;
+        [SerializeField]
+        public Platform rayCastingPlatform;
+        [SerializeField]
         public Item holdingItem;
         private void Start()
-        {
+        {        
+            if (photonView == null)
+            {
+                photonView = GetComponent<PhotonView>();
+            }
             if (itemAnchor == null) itemAnchor = transform;
+            if (photonView != null)
+            {
+                if (GameManager.instance.playerController.ViewID != ViewID)
+                {
+                    this.enabled = false;
+                }
+            }
         }
         void Update()
         {

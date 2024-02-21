@@ -12,6 +12,10 @@ namespace MyFirstARGame
         private ItemType type;
         [SerializeField]
         public PhotonView photonView;
+        public int ViewID
+        {
+            get => photonView.ViewID;
+        }
 
         public ItemType Type { get { return type; } }
         public virtual void Start()

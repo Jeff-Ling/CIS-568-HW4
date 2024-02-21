@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  photonView: {fileID: 0}
+  photonView: {fileID: 3415551264489157292}
   progress: 0
   cookingSpeed: 0.1
   rawSteak: {fileID: 5671583283580072601}

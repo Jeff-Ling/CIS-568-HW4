@@ -85,8 +85,7 @@ namespace MyFirstARGame
                     {
                         Debug.Log("Eating Done.");
                         plate.FinishedEating();
-                        //GameManager.instance.Score++;
-                        // TODO: add score
+                        GameManager.instance.IncrementScore();
                         eatProgress = 0f;
                         customer.active = false;
                     }

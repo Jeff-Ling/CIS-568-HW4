@@ -28,13 +28,24 @@ namespace MyFirstARGame
                 {
                     Debug.Log($"Cooking Steak... {progress * 100f}%.");
                     progress += cookingSpeed * Time.deltaTime;
-                    if (progress > 1f)
+                    if (progress >= 1f)
                     {
                         Debug.Log("Steak Done.");
-                        rawSteak.SetActive(false);
-                        welldoneSteak.SetActive(true);
+                        //rawSteak.SetActive(false);
+                        //welldoneSteak.SetActive(true);
+                        photonView.RPC("CookedSync", RpcTarget.AllBuffered, ViewID);
                     }
                 }
+            }
+        }
+        [PunRPC]
+        public void CookedSync(int steakId)
+        {
+            if (steakId == ViewID)
+            {
+                progress = 1f;
+                rawSteak.SetActive(false);
+                welldoneSteak.SetActive(true);
             }
         }
 

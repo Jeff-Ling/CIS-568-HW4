@@ -35,9 +35,7 @@ namespace MyFirstARGame
                     if (washProgress > 1f)
                     {
                         Debug.Log("Clean Done.");
-                        dirtyPlate.SetActive(false);
-                        cleanPlate.SetActive(true);
-                        washProgress = 0f;
+                        photonView.RPC("CleanSync", RpcTarget.AllBuffered, ViewID);
                     }
                 }
             }
@@ -49,19 +47,47 @@ namespace MyFirstARGame
         public bool AddSteak()
         {
             if (!cleanPlate.active) return false;
-            cleanPlate.SetActive(false);
-            dirtyPlate.SetActive(false);
-            steakOnPlate.SetActive(true);
+            photonView.RPC("SteakSync", RpcTarget.AllBuffered, ViewID);
             //Consumable = true;
             return true;
         }
         public bool FinishedEating()
         {
             if (!steakOnPlate.active) return false;
-            cleanPlate.SetActive(false);
-            dirtyPlate.SetActive(true);
-            steakOnPlate.SetActive(false);
+            photonView.RPC("DirtySync", RpcTarget.AllBuffered, ViewID);
             return true;
+        }
+
+        [PunRPC]
+        public void CleanSync(int plateId)
+        {
+            if (plateId == ViewID)
+            {
+                cleanPlate.SetActive(true);
+                dirtyPlate.SetActive(false);
+                steakOnPlate.SetActive(false);
+                washProgress = 0f;
+            }
+        }
+        [PunRPC]
+        public void DirtySync(int plateId)
+        {
+            if (plateId == ViewID)
+            {
+                cleanPlate.SetActive(false);
+                dirtyPlate.SetActive(true);
+                steakOnPlate.SetActive(false);
+            }
+        }
+        [PunRPC]
+        public void SteakSync(int plateId)
+        {
+            if (plateId == ViewID)
+            {
+                cleanPlate.SetActive(false);
+                dirtyPlate.SetActive(false);
+                steakOnPlate.SetActive(true);
+            }
         }
     }
 }

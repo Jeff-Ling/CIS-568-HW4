@@ -26,48 +26,60 @@ namespace MyFirstARGame
                 return _instance;
             }
         }
+        [SerializeField]
+        public PlayerController playerController;
 
         [SerializeField]
         public PhotonView photonView;
-        [SerializeField]
-        protected PlayerController playerController;
-        [SerializeField]
-        protected Platform operatingPlatform;
-        [SerializeField]
-        protected Platform rayCastingPlatform;
-        [SerializeField]
-        protected Item holdingItem;
+        public int ViewID
+        {
+            get => photonView.ViewID;
+        }
         //[SerializeField]
-        //protected int score = 0;
-        //public int Score
-        //{
-        //    get => score; set => score = value;
-        //}
+        //protected Platform operatingPlatform;
+        //[SerializeField]
+        //protected Platform rayCastingPlatform;
+        //[SerializeField]
+        //protected Item holdingItem;
+        [SerializeField]
+        protected int score = 0;
+        public int Score
+        {
+            get => score; 
+        }
+        public void IncrementScore()
+        {
+            photonView.RPC("ScoreSync", RpcTarget.AllBuffered, score+1);
+        }
+        [PunRPC]
+        public void ScoreSync(int score)
+        {
+            this.score = score;
+        }
         public Platform OperatingPlatform {
-            get { return operatingPlatform; } 
+            get { return playerController.operatingPlatform; } 
             set
             {
-                operatingPlatform = value;
+                playerController.operatingPlatform = value;
             }
         }
         public Platform RayCastingPlatform { 
-            get { return rayCastingPlatform; }
+            get { return playerController.rayCastingPlatform; }
 
             set
             {
-                rayCastingPlatform = value;
+                playerController.rayCastingPlatform = value;
             }
         }
-        public Item HoldingItem { 
-            get { return holdingItem; }
+        public Item holdingItem { 
+            get { return playerController.holdingItem; }
             set
             {
-                holdingItem = value;
+                playerController.holdingItem = value;
             }
         }
         protected void Start()
         {
-
             if (photonView == null)
             {
                 photonView = GetComponent<PhotonView>();
@@ -75,42 +87,91 @@ namespace MyFirstARGame
         }
         public bool OnPickUp()
         {
-            if (holdingItem != null) return false;
-            if (rayCastingPlatform == null) return false;
-            int id = rayCastingPlatform.OnPickUp();
-            if (id == -1) holdingItem = null;
-            else holdingItem = PhotonView.Find(id).GetComponent<Item>();
-            if (holdingItem != null)
+            if (playerController.holdingItem != null) return false;
+            if (playerController.rayCastingPlatform == null) return false;
+            int id = playerController.rayCastingPlatform.OnPickUp();
+
+            if (id != -1)
             {
-                holdingItem.transform.parent = playerController.transform;
-                holdingItem.transform.localPosition = Vector3.zero;
-                holdingItem.transform.localRotation = Quaternion.identity;
-                holdingItem.OnPickUp();
-                
+                playerController.holdingItem = PhotonView.Find(id).GetComponent<Item>();
+                playerController.holdingItem.transform.parent = playerController.transform;
+                playerController.holdingItem.transform.localPosition = Vector3.zero;
+                playerController.holdingItem.transform.localRotation = Quaternion.identity;
+                playerController.holdingItem.OnPickUp();
+                photonView.RPC("OnPickUpSync", RpcTarget.AllBuffered, PhotonNetwork.LocalPlayer.ActorNumber, playerController.ViewID, playerController.rayCastingPlatform.ViewID) ;
             }
-            return holdingItem != null;
+
+            return playerController.holdingItem != null;
+        }
+        [PunRPC]
+        public void OnPickUpSync(int callerId, int playerControllerId, int platformId)
+        {
+            if (callerId == PhotonNetwork.LocalPlayer.ActorNumber) return;
+
+            var playerController = PhotonView.Find(playerControllerId).GetComponent<PlayerController>();
+            var platform = PhotonView.Find(platformId).GetComponent<Platform>();
+            int id = platform.OnPickUp();
+
+            if (id != -1)
+            {
+                playerController.holdingItem = PhotonView.Find(id).GetComponent<Item>();
+                playerController.holdingItem.transform.parent = playerController.transform;
+                playerController.holdingItem.transform.localPosition = Vector3.zero;
+                playerController.holdingItem.transform.localRotation = Quaternion.identity;
+                playerController.holdingItem.OnPickUp();
+            }
         }
         public bool OnDrop()
         {
-            if (holdingItem == null) return false;
-            if (rayCastingPlatform == null) return false;
-            if (rayCastingPlatform.AddOneItem(holdingItem.photonView.ViewID))
+            if (playerController.holdingItem == null) return false;
+            if (playerController.rayCastingPlatform == null) return false;
+            if (playerController.rayCastingPlatform.AddOneItem(playerController.holdingItem.ViewID))
             {
-                holdingItem.OnDrop(rayCastingPlatform.photonView.ViewID);
-                holdingItem = null;
+                playerController.holdingItem.OnDrop(playerController.rayCastingPlatform.ViewID);
+                playerController.holdingItem = null;
+                photonView.RPC("OnDropSync", RpcTarget.AllBuffered, PhotonNetwork.LocalPlayer.ActorNumber, playerController.ViewID, playerController.rayCastingPlatform.ViewID);
                 return true;
             }
             return false;
         }
+        [PunRPC]
+        public void OnDropSync(int callerId, int playerControllerId, int platformId)
+        {
+            if (callerId == PhotonNetwork.LocalPlayer.ActorNumber) return;
+            var playerController = PhotonView.Find(playerControllerId).GetComponent<PlayerController>();
+            var platform = PhotonView.Find(platformId).GetComponent<Platform>();
+            if (platform.AddOneItem(playerController.holdingItem.ViewID))
+            {
+                playerController.holdingItem.OnDrop(platform.ViewID);
+                playerController.holdingItem = null;
+            }
+        }
         public bool OnOperate()
         {
-            if (rayCastingPlatform == null) return false;
-            operatingPlatform = rayCastingPlatform;
+            if (playerController.rayCastingPlatform == null) return false;
+            playerController.operatingPlatform = playerController.rayCastingPlatform;
+            photonView.RPC("OnOperateSync", RpcTarget.AllBuffered, PhotonNetwork.LocalPlayer.ActorNumber, playerController.photonView.ViewID, playerController.rayCastingPlatform.photonView.ViewID);
             return true;
+        }
+        [PunRPC]
+        public void OnOperateSync(int callerId, int playerControllerId, int platformId)
+        {
+            if (callerId == PhotonNetwork.LocalPlayer.ActorNumber) return;
+            var playerController = PhotonView.Find(playerControllerId).GetComponent<PlayerController>();
+            var platform = PhotonView.Find(platformId).GetComponent<Platform>();
+            playerController.operatingPlatform = platform;
         }
         public void OnStopOperate()
         {
-            operatingPlatform = null;
+            playerController.operatingPlatform = null;
+            photonView.RPC("OnStopOperateSync", RpcTarget.AllBuffered, PhotonNetwork.LocalPlayer.ActorNumber, playerController.ViewID);
+        }
+        [PunRPC]
+        public void OnStopOperateSync(int callerId, int playerControllerId)
+        {
+            if (callerId == PhotonNetwork.LocalPlayer.ActorNumber) return;
+            var playerController = PhotonView.Find(playerControllerId).GetComponent<PlayerController>();
+            playerController.operatingPlatform = null;
         }
     }
 }

@@ -3897,6 +3897,7 @@ GameObject:
   - component: {fileID: 715633773}
   - component: {fileID: 715633774}
   - component: {fileID: 715633775}
+  - component: {fileID: 715633776}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4260,7 +4261,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 0}
   rayCastDistance: 1
+  photonView: {fileID: 715633776}
+  operatingPlatform: {fileID: 0}
+  rayCastingPlatform: {fileID: 0}
   holdingItem: {fileID: 0}
+--- !u!114 &715633776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715633765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 30
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &818792780
 GameObject:
   m_ObjectHideFlags: 0
@@ -7964,8 +7990,8 @@ Transform:
   m_GameObject: {fileID: 1442199963}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.09, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalPosition: {x: 0, y: -0.74, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 42182249}
@@ -9058,11 +9084,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 504b38d5195f523458a83ad10e6424a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  photonView: {fileID: 0}
   playerController: {fileID: 715633775}
-  operatingPlatform: {fileID: 0}
-  rayCastingPlatform: {fileID: 0}
-  holdingItem: {fileID: 0}
+  photonView: {fileID: 1640481018}
 --- !u!4 &1640481017
 Transform:
   m_ObjectHideFlags: 0
@@ -9097,7 +9120,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 41
+  sceneViewId: 29
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!1 &1683401103
