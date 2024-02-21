@@ -6,7 +6,7 @@ namespace MyFirstARGame
 {
     public class DiningTable : Platform
     {
-        public GameObject customerPrefab;
+        //public GameObject customerPrefab;
         public Transform customerAnchor;
         public float spawnInterval = 5f;
         public GameObject customer;
@@ -18,7 +18,7 @@ namespace MyFirstARGame
         public override void Start()
         {
             base.Start();
-            customer = Instantiate(customerPrefab, customerAnchor);
+            //if (customer == null) customer = Instantiate(customerPrefab, customerAnchor);
         }
 
         public override bool AddOneItem(Item item)

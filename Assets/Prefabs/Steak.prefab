@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7297527097409874121}
   - component: {fileID: 6104185624573821727}
   - component: {fileID: 2767027123646738919}
+  - component: {fileID: 3415551264489157292}
+  - component: {fileID: 3594836769280556204}
   m_Layer: 6
   m_Name: Steak
   m_TagString: Untagged
@@ -71,9 +73,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   progress: 0
-  cookingSpeed: 0.2
+  cookingSpeed: 0.1
   rawSteak: {fileID: 5671583283580072601}
   welldoneSteak: {fileID: 8457994904171450444}
+--- !u!114 &3415551264489157292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4654442871193432082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 3594836769280556204}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &3594836769280556204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4654442871193432082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1001 &5463555471823123326
 PrefabInstance:
   m_ObjectHideFlags: 0
