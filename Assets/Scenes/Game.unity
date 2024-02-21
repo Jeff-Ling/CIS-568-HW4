@@ -176,6 +176,8 @@ MonoBehaviour:
   itemAnchor: {fileID: 1074956408}
   type: 4
   photonView: {fileID: 0}
+  operatedBy: {fileID: 0}
+  operatingSound: {fileID: 0}
   item: {fileID: 0}
   steakPrefab: {fileID: 4654442871193432082, guid: c99aa9587fc31c241b53265946fdea1e,
     type: 3}
@@ -567,7 +569,10 @@ MonoBehaviour:
   itemAnchor: {fileID: 0}
   type: 0
   photonView: {fileID: 0}
+  operatedBy: {fileID: 0}
+  operatingSound: {fileID: 0}
   item: {fileID: 0}
+  cookingAudioClip: {fileID: 872676881}
 --- !u!114 &33490208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -730,7 +735,10 @@ MonoBehaviour:
   itemAnchor: {fileID: 0}
   type: 0
   photonView: {fileID: 0}
+  operatedBy: {fileID: 0}
+  operatingSound: {fileID: 0}
   item: {fileID: 0}
+  cookingAudioClip: {fileID: 872676881}
 --- !u!114 &38790347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -765,7 +773,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 38790347}
   sceneViewId: 46
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -920,6 +929,7 @@ Transform:
   - {fileID: 706806393}
   - {fileID: 1240003583}
   - {fileID: 38790341}
+  - {fileID: 872676880}
   m_Father: {fileID: 1442199964}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1001 &53214917
@@ -1351,6 +1361,8 @@ MonoBehaviour:
   itemAnchor: {fileID: 2031500846}
   type: 3
   photonView: {fileID: 0}
+  operatedBy: {fileID: 0}
+  operatingSound: {fileID: 0}
   item: {fileID: 2121985117}
 --- !u!65 &138305428
 BoxCollider:
@@ -2863,6 +2875,8 @@ MonoBehaviour:
   itemAnchor: {fileID: 227247022}
   type: 4
   photonView: {fileID: 0}
+  operatedBy: {fileID: 0}
+  operatingSound: {fileID: 0}
   item: {fileID: 0}
   steakPrefab: {fileID: 4654442871193432082, guid: c99aa9587fc31c241b53265946fdea1e,
     type: 3}
@@ -3564,6 +3578,8 @@ MonoBehaviour:
   itemAnchor: {fileID: 122972887}
   type: 4
   photonView: {fileID: 0}
+  operatedBy: {fileID: 0}
+  operatingSound: {fileID: 0}
   item: {fileID: 0}
   steakPrefab: {fileID: 4654442871193432082, guid: c99aa9587fc31c241b53265946fdea1e,
     type: 3}
@@ -3912,7 +3928,10 @@ MonoBehaviour:
   itemAnchor: {fileID: 0}
   type: 0
   photonView: {fileID: 0}
+  operatedBy: {fileID: 0}
+  operatingSound: {fileID: 0}
   item: {fileID: 0}
+  cookingAudioClip: {fileID: 872676881}
 --- !u!114 &706806399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4482,7 +4501,10 @@ MonoBehaviour:
   itemAnchor: {fileID: 0}
   type: 0
   photonView: {fileID: 0}
+  operatedBy: {fileID: 0}
+  operatingSound: {fileID: 0}
   item: {fileID: 0}
+  cookingAudioClip: {fileID: 872676881}
 --- !u!114 &818792787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4654,6 +4676,134 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835797453}
   m_CullTransparentMesh: 0
+--- !u!1 &872676879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 872676880}
+  - component: {fileID: 872676881}
+  m_Layer: 0
+  m_Name: CookingAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &872676880
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872676879}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.22200003, y: 0.416, z: 0.06300023}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 42182249}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &872676881
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872676879}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1c453b11866f9224798167e7e411767d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &908374776
 GameObject:
   m_ObjectHideFlags: 0
@@ -4707,6 +4857,8 @@ MonoBehaviour:
   itemAnchor: {fileID: 1053678861}
   type: 3
   photonView: {fileID: 0}
+  operatedBy: {fileID: 0}
+  operatingSound: {fileID: 0}
   item: {fileID: 1035882296}
 --- !u!65 &908374779
 BoxCollider:
@@ -4903,6 +5055,8 @@ MonoBehaviour:
   itemAnchor: {fileID: 1715932462}
   type: 1
   photonView: {fileID: 0}
+  operatedBy: {fileID: 0}
+  operatingSound: {fileID: 0}
   item: {fileID: 0}
   customerAnchor: {fileID: 277266096}
   spawnInterval: 3
@@ -6591,6 +6745,8 @@ MonoBehaviour:
   itemAnchor: {fileID: 1933096829}
   type: 5
   photonView: {fileID: 0}
+  operatedBy: {fileID: 0}
+  operatingSound: {fileID: 0}
   item: {fileID: 0}
 --- !u!65 &1225558791
 BoxCollider:
@@ -6755,6 +6911,8 @@ MonoBehaviour:
   itemAnchor: {fileID: 0}
   type: 3
   photonView: {fileID: 0}
+  operatedBy: {fileID: 0}
+  operatingSound: {fileID: 0}
   item: {fileID: 1959540075}
 --- !u!65 &1227592039
 BoxCollider:
@@ -6989,7 +7147,10 @@ MonoBehaviour:
   itemAnchor: {fileID: 0}
   type: 0
   photonView: {fileID: 0}
+  operatedBy: {fileID: 0}
+  operatingSound: {fileID: 0}
   item: {fileID: 0}
+  cookingAudioClip: {fileID: 872676881}
 --- !u!114 &1240003589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7215,6 +7376,8 @@ MonoBehaviour:
   itemAnchor: {fileID: 251203547}
   type: 5
   photonView: {fileID: 0}
+  operatedBy: {fileID: 0}
+  operatingSound: {fileID: 0}
   item: {fileID: 0}
 --- !u!65 &1268044905
 BoxCollider:
@@ -7448,7 +7611,10 @@ MonoBehaviour:
   itemAnchor: {fileID: 0}
   type: 0
   photonView: {fileID: 0}
+  operatedBy: {fileID: 0}
+  operatingSound: {fileID: 0}
   item: {fileID: 0}
+  cookingAudioClip: {fileID: 872676881}
 --- !u!114 &1297706478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7540,6 +7706,8 @@ MonoBehaviour:
   itemAnchor: {fileID: 2107705664}
   type: 5
   photonView: {fileID: 0}
+  operatedBy: {fileID: 0}
+  operatingSound: {fileID: 0}
   item: {fileID: 0}
 --- !u!65 &1348004135
 BoxCollider:
@@ -7703,6 +7871,8 @@ MonoBehaviour:
   itemAnchor: {fileID: 1826528839}
   type: 2
   photonView: {fileID: 0}
+  operatedBy: {fileID: 0}
+  operatingSound: {fileID: 0}
   item: {fileID: 0}
 --- !u!65 &1384482761
 BoxCollider:
@@ -8061,6 +8231,8 @@ MonoBehaviour:
   itemAnchor: {fileID: 85090714}
   type: 5
   photonView: {fileID: 0}
+  operatedBy: {fileID: 0}
+  operatingSound: {fileID: 0}
   item: {fileID: 0}
 --- !u!65 &1435709591
 BoxCollider:
@@ -8196,8 +8368,8 @@ Transform:
   m_GameObject: {fileID: 1442199963}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.74, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.391, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 42182249}
@@ -8349,6 +8521,8 @@ MonoBehaviour:
   itemAnchor: {fileID: 404812550}
   type: 4
   photonView: {fileID: 0}
+  operatedBy: {fileID: 0}
+  operatingSound: {fileID: 0}
   item: {fileID: 0}
   steakPrefab: {fileID: 4654442871193432082, guid: c99aa9587fc31c241b53265946fdea1e,
     type: 3}
@@ -8644,8 +8818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 1568414836858200, guid: f0e0be81472ff1243aa2afa27e5d0e61,
-    type: 3}
+  m_PlanePrefab: {fileID: 0}
   m_DetectionMode: -1
 --- !u!114 &1513056494
 MonoBehaviour:
@@ -8907,6 +9080,8 @@ MonoBehaviour:
   itemAnchor: {fileID: 444221057}
   type: 4
   photonView: {fileID: 0}
+  operatedBy: {fileID: 0}
+  operatingSound: {fileID: 0}
   item: {fileID: 0}
   steakPrefab: {fileID: 4654442871193432082, guid: c99aa9587fc31c241b53265946fdea1e,
     type: 3}
@@ -9149,6 +9324,8 @@ MonoBehaviour:
   itemAnchor: {fileID: 242509325}
   type: 3
   photonView: {fileID: 0}
+  operatedBy: {fileID: 0}
+  operatingSound: {fileID: 0}
   item: {fileID: 1758987780}
 --- !u!65 &1602967550
 BoxCollider:
@@ -10432,6 +10609,8 @@ MonoBehaviour:
   itemAnchor: {fileID: 2029871928}
   type: 4
   photonView: {fileID: 0}
+  operatedBy: {fileID: 0}
+  operatingSound: {fileID: 0}
   item: {fileID: 0}
   steakPrefab: {fileID: 4654442871193432082, guid: c99aa9587fc31c241b53265946fdea1e,
     type: 3}
@@ -10734,6 +10913,8 @@ MonoBehaviour:
   itemAnchor: {fileID: 921862284}
   type: 2
   photonView: {fileID: 0}
+  operatedBy: {fileID: 0}
+  operatingSound: {fileID: 0}
   item: {fileID: 0}
 --- !u!65 &2085810479
 BoxCollider:
@@ -11584,7 +11765,7 @@ MonoBehaviour:
   pickUpBtn: {fileID: 2014472294}
   dropBtn: {fileID: 1155026158}
   operateBtn: {fileID: 298859893}
-  scoreField: {fileID: 0}
+  scoreField: {fileID: 1071990253}
 --- !u!224 &4792654349558838537
 RectTransform:
   m_ObjectHideFlags: 0

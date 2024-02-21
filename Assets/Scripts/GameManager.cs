@@ -165,6 +165,7 @@ namespace MyFirstARGame
         {
             if (playerController.rayCastingPlatform == null) return false;
             playerController.operatingPlatform = playerController.rayCastingPlatform;
+            playerController.rayCastingPlatform.operatedBy = playerController;
             photonView.RPC("OnOperateSync", RpcTarget.AllBuffered, PhotonNetwork.LocalPlayer.ActorNumber, playerController.photonView.ViewID, playerController.rayCastingPlatform.photonView.ViewID);
             return true;
         }
@@ -175,9 +176,14 @@ namespace MyFirstARGame
             var playerController = PhotonView.Find(playerControllerId).GetComponent<PlayerController>();
             var platform = PhotonView.Find(platformId).GetComponent<Platform>();
             playerController.operatingPlatform = platform;
+            platform.operatedBy = playerController;
         }
         public void OnStopOperate()
         {
+            if (playerController.operatingPlatform != null)
+            {
+                playerController.operatingPlatform.operatedBy = null;
+            }
             playerController.operatingPlatform = null;
             photonView.RPC("OnStopOperateSync", RpcTarget.AllBuffered, PhotonNetwork.LocalPlayer.ActorNumber, playerController.ViewID);
         }
@@ -186,6 +192,10 @@ namespace MyFirstARGame
         {
             if (callerId == PhotonNetwork.LocalPlayer.ActorNumber) return;
             var playerController = PhotonView.Find(playerControllerId).GetComponent<PlayerController>();
+            if (playerController.operatingPlatform != null)
+            {
+                playerController.operatingPlatform.operatedBy = null;
+            }
             playerController.operatingPlatform = null;
         }
     }
