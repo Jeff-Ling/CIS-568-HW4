@@ -177,7 +177,6 @@ MonoBehaviour:
   type: 4
   photonView: {fileID: 0}
   operatedBy: {fileID: 0}
-  operatingSound: {fileID: 0}
   item: {fileID: 0}
   steakPrefab: {fileID: 4654442871193432082, guid: c99aa9587fc31c241b53265946fdea1e,
     type: 3}
@@ -570,7 +569,6 @@ MonoBehaviour:
   type: 0
   photonView: {fileID: 0}
   operatedBy: {fileID: 0}
-  operatingSound: {fileID: 0}
   item: {fileID: 0}
   cookingAudioClip: {fileID: 872676881}
 --- !u!114 &33490208
@@ -736,7 +734,6 @@ MonoBehaviour:
   type: 0
   photonView: {fileID: 0}
   operatedBy: {fileID: 0}
-  operatingSound: {fileID: 0}
   item: {fileID: 0}
   cookingAudioClip: {fileID: 872676881}
 --- !u!114 &38790347
@@ -1362,7 +1359,6 @@ MonoBehaviour:
   type: 3
   photonView: {fileID: 0}
   operatedBy: {fileID: 0}
-  operatingSound: {fileID: 0}
   item: {fileID: 2121985117}
 --- !u!65 &138305428
 BoxCollider:
@@ -2967,7 +2963,6 @@ MonoBehaviour:
   type: 4
   photonView: {fileID: 0}
   operatedBy: {fileID: 0}
-  operatingSound: {fileID: 0}
   item: {fileID: 0}
   steakPrefab: {fileID: 4654442871193432082, guid: c99aa9587fc31c241b53265946fdea1e,
     type: 3}
@@ -3675,7 +3670,6 @@ MonoBehaviour:
   type: 4
   photonView: {fileID: 0}
   operatedBy: {fileID: 0}
-  operatingSound: {fileID: 0}
   item: {fileID: 0}
   steakPrefab: {fileID: 4654442871193432082, guid: c99aa9587fc31c241b53265946fdea1e,
     type: 3}
@@ -4025,7 +4019,6 @@ MonoBehaviour:
   type: 0
   photonView: {fileID: 0}
   operatedBy: {fileID: 0}
-  operatingSound: {fileID: 0}
   item: {fileID: 0}
   cookingAudioClip: {fileID: 872676881}
 --- !u!114 &706806399
@@ -4598,7 +4591,6 @@ MonoBehaviour:
   type: 0
   photonView: {fileID: 0}
   operatedBy: {fileID: 0}
-  operatingSound: {fileID: 0}
   item: {fileID: 0}
   cookingAudioClip: {fileID: 872676881}
 --- !u!114 &818792787
@@ -4954,7 +4946,6 @@ MonoBehaviour:
   type: 3
   photonView: {fileID: 0}
   operatedBy: {fileID: 0}
-  operatingSound: {fileID: 0}
   item: {fileID: 1035882296}
 --- !u!65 &908374779
 BoxCollider:
@@ -5152,7 +5143,6 @@ MonoBehaviour:
   type: 1
   photonView: {fileID: 0}
   operatedBy: {fileID: 0}
-  operatingSound: {fileID: 0}
   item: {fileID: 0}
   customerAnchor: {fileID: 277266096}
   spawnInterval: 3
@@ -5160,6 +5150,8 @@ MonoBehaviour:
   eatProgress: 0
   eatSpeed: 0.3
   patienceSlider: {fileID: 191007876}
+  maxPatience: 100
+  decreaseRate: 2
 --- !u!65 &949966844
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6879,7 +6871,6 @@ MonoBehaviour:
   type: 5
   photonView: {fileID: 0}
   operatedBy: {fileID: 0}
-  operatingSound: {fileID: 0}
   item: {fileID: 0}
 --- !u!65 &1225558791
 BoxCollider:
@@ -7045,7 +7036,6 @@ MonoBehaviour:
   type: 3
   photonView: {fileID: 0}
   operatedBy: {fileID: 0}
-  operatingSound: {fileID: 0}
   item: {fileID: 1959540075}
 --- !u!65 &1227592039
 BoxCollider:
@@ -7281,7 +7271,6 @@ MonoBehaviour:
   type: 0
   photonView: {fileID: 0}
   operatedBy: {fileID: 0}
-  operatingSound: {fileID: 0}
   item: {fileID: 0}
   cookingAudioClip: {fileID: 872676881}
 --- !u!114 &1240003589
@@ -7585,7 +7574,6 @@ MonoBehaviour:
   type: 5
   photonView: {fileID: 0}
   operatedBy: {fileID: 0}
-  operatingSound: {fileID: 0}
   item: {fileID: 0}
 --- !u!65 &1268044905
 BoxCollider:
@@ -7936,7 +7924,6 @@ MonoBehaviour:
   type: 0
   photonView: {fileID: 0}
   operatedBy: {fileID: 0}
-  operatingSound: {fileID: 0}
   item: {fileID: 0}
   cookingAudioClip: {fileID: 872676881}
 --- !u!114 &1297706478
@@ -8106,7 +8093,6 @@ MonoBehaviour:
   type: 5
   photonView: {fileID: 0}
   operatedBy: {fileID: 0}
-  operatingSound: {fileID: 0}
   item: {fileID: 0}
 --- !u!65 &1348004135
 BoxCollider:
@@ -8271,7 +8257,6 @@ MonoBehaviour:
   type: 2
   photonView: {fileID: 0}
   operatedBy: {fileID: 0}
-  operatingSound: {fileID: 0}
   item: {fileID: 0}
 --- !u!65 &1384482761
 BoxCollider:
@@ -8631,7 +8616,6 @@ MonoBehaviour:
   type: 5
   photonView: {fileID: 0}
   operatedBy: {fileID: 0}
-  operatingSound: {fileID: 0}
   item: {fileID: 0}
 --- !u!65 &1435709591
 BoxCollider:
@@ -8921,7 +8905,6 @@ MonoBehaviour:
   type: 4
   photonView: {fileID: 0}
   operatedBy: {fileID: 0}
-  operatingSound: {fileID: 0}
   item: {fileID: 0}
   steakPrefab: {fileID: 4654442871193432082, guid: c99aa9587fc31c241b53265946fdea1e,
     type: 3}
@@ -9480,7 +9463,6 @@ MonoBehaviour:
   type: 4
   photonView: {fileID: 0}
   operatedBy: {fileID: 0}
-  operatingSound: {fileID: 0}
   item: {fileID: 0}
   steakPrefab: {fileID: 4654442871193432082, guid: c99aa9587fc31c241b53265946fdea1e,
     type: 3}
@@ -9724,7 +9706,6 @@ MonoBehaviour:
   type: 3
   photonView: {fileID: 0}
   operatedBy: {fileID: 0}
-  operatingSound: {fileID: 0}
   item: {fileID: 1758987780}
 --- !u!65 &1602967550
 BoxCollider:
@@ -10041,6 +10022,134 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683401103}
   m_CullTransparentMesh: 1
+--- !u!1 &1684970904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1684970905}
+  - component: {fileID: 1684970906}
+  m_Layer: 0
+  m_Name: WashSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1684970905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684970904}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.00049996405, y: 0.06099993, z: -0.0025000575}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1729832963}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1684970906
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684970904}
+  m_Enabled: 0
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 0b1cce9a924796641a637c9be40a2a1e, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1699936625
 GameObject:
   m_ObjectHideFlags: 0
@@ -10184,6 +10293,7 @@ Transform:
   - {fileID: 962988245}
   - {fileID: 2085810477}
   - {fileID: 1384482759}
+  - {fileID: 1684970905}
   m_Father: {fileID: 1442199964}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &1729832964
@@ -11120,7 +11230,6 @@ MonoBehaviour:
   type: 4
   photonView: {fileID: 0}
   operatedBy: {fileID: 0}
-  operatingSound: {fileID: 0}
   item: {fileID: 0}
   steakPrefab: {fileID: 4654442871193432082, guid: c99aa9587fc31c241b53265946fdea1e,
     type: 3}
@@ -11424,7 +11533,6 @@ MonoBehaviour:
   type: 2
   photonView: {fileID: 0}
   operatedBy: {fileID: 0}
-  operatingSound: {fileID: 0}
   item: {fileID: 0}
 --- !u!65 &2085810479
 BoxCollider:

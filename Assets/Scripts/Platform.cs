@@ -16,8 +16,6 @@ namespace MyFirstARGame
         public PhotonView photonView;
         [SerializeField]
         public PlayerController operatedBy;
-        [SerializeField]
-        public AudioSource operatingSound;
         public int ViewID
         {
             get => photonView.ViewID;
@@ -36,11 +34,6 @@ namespace MyFirstARGame
                 photonView = GetComponent<PhotonView>();
             }
             if (itemAnchor == null) itemAnchor = transform;
-            if (operatingSound != null)
-            {
-                operatingSound.volume = 0f;
-                operatingSound.Play();
-            }
         }
         [PunRPC]
         public virtual bool AddOneItem(int itemViewId)
@@ -94,7 +87,6 @@ namespace MyFirstARGame
                     item.UpdateByPlatform(photonView.ViewID);
                 }
             }
-            if (operatingSound != null) operatingSound.volume = operatedBy != null? 1f : 0f;
         }
     }
 }

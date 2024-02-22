@@ -16,9 +16,11 @@ namespace MyFirstARGame
         public float eatSpeed = 0.1f;
 
         public Slider patienceSlider;
+        [SerializeField]
         float maxPatience = 100f;
         float currentPatience;
-        float decreaseRate = 2f;
+        [SerializeField]
+        float decreaseRate = 5f;
 
         float timer = 0f;
 
