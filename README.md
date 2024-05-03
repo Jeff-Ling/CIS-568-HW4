@@ -12,3 +12,4 @@ In this game, players must work together to earn high scores.
 
  - We utilized Photon Network to establish the connection between two players.
  - We used a single target image to ensure everyone is positioned in the same world coordinates.
+ - Employed RaycastHit to accurately detect user pointing locations, supplemented with two interactive buttons for enhanced world interaction.
